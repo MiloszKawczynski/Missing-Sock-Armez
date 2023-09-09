@@ -1,0 +1,2 @@
+hold=noone;
+holdSprite=noone;

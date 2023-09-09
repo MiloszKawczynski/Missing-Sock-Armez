@@ -43,6 +43,7 @@
     {"name":"s_block","order":1,"path":"sprites/s_block/s_block.yy",},
     {"name":"GMLive_program","order":3,"path":"scripts/GMLive_program/GMLive_program.yy",},
     {"name":"GMLive_token","order":7,"path":"scripts/GMLive_token/GMLive_token.yy",},
+    {"name":"o_hand","order":7,"path":"objects/o_hand/o_hand.yy",},
     {"name":"s_bug","order":2,"path":"sprites/s_bug/s_bug.yy",},
     {"name":"GMLive_thread","order":4,"path":"scripts/GMLive_thread/GMLive_thread.yy",},
     {"name":"GMLive_notOnce","order":1,"path":"scripts/GMLive_notOnce/GMLive_notOnce.yy",},

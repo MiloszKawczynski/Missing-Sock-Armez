@@ -76,6 +76,7 @@
     {"id":{"name":"s_block","path":"sprites/s_block/s_block.yy",},},
     {"id":{"name":"GMLive_program","path":"scripts/GMLive_program/GMLive_program.yy",},},
     {"id":{"name":"GMLive_token","path":"scripts/GMLive_token/GMLive_token.yy",},},
+    {"id":{"name":"o_hand","path":"objects/o_hand/o_hand.yy",},},
     {"id":{"name":"s_bug","path":"sprites/s_bug/s_bug.yy",},},
     {"id":{"name":"GMLive_thread","path":"scripts/GMLive_thread/GMLive_thread.yy",},},
     {"id":{"name":"GMLive_builder","path":"scripts/GMLive_builder/GMLive_builder.yy",},},

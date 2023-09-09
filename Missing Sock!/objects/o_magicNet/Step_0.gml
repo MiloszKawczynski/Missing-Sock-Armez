@@ -21,14 +21,16 @@ if attractStrike
 
 var bug=instance_nearest(x,y,o_bug)
 
+var mouseButtons=mouse_check_button(attractButton)-mouse_check_button(freezeButton)
+
 if distance_to_object(bug)<=magicNetRange
 {
-	if mouse_check_button_pressed(freezeButton)
+	if mouse_check_button_pressed(freezeButton) and mouseButtons==-1
 	{
 		freezeStrike=true;
 	}
 
-	if mouse_check_button(freezeButton)
+	if mouseButtons==-1
 	{
 		if freezeHold<maxFreezeHold
 		{
@@ -36,12 +38,12 @@ if distance_to_object(bug)<=magicNetRange
 		}
 	}
 	
-	if mouse_check_button_pressed(attractButton)
+	if mouse_check_button_pressed(attractButton) and mouseButtons==1
 	{
 		attractStrike=true;
 	}
 
-	if mouse_check_button(attractButton)
+	if mouseButtons==1
 	{
 		if attractHold<maxAttractHold
 		{

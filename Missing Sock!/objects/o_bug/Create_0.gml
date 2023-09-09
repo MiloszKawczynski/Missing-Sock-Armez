@@ -14,20 +14,18 @@ normal=function()
 	}
 }
 
-normal2=function()
+kropkaczka=function()
 {
-	scr_moveByPath()
+	scr_moveBySin(0,0.5,48,500)
 	
 	if distance_to_object(o_magicNet)<=o_magicNet.magicNetRange
 	{
-		scr_slowDownWithMagic(maxBugSpeed)
+		scr_slowDownWithMagic(maxBugSpeed,true)
 		scr_attractToElf(3)
 		scr_catch(15)
 	}
-	else
-	{	
-		scr_normalSpeedRecover(0.01)
-	}
+	
+	scr_normalSpeedRecover(0.01)
 }
 
 switch(type)
@@ -40,13 +38,13 @@ switch(type)
 		
 		break;
 	}
-	case("normal2"):
+	case("kropkaczka"):
 	{
-		image_blend=c_red
+		image_blend=c_fuchsia
 		
-		behaviour=normal2;
+		behaviour=kropkaczka;
 		
-		scr_bug(1,pth_2)
+		scr_bug(3)
 		
 		break;
 	}

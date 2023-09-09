@@ -1,3 +1,5 @@
+global.catchedBugs=ds_list_create()
+
 acceleration=1;
 deceleration=1;
 maximumSpeed=10;

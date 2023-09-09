@@ -1,7 +1,7 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "o_bug",
+  "name": "o_hand",
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
@@ -27,16 +27,11 @@
   "physicsShape": 1,
   "physicsShapePoints": [],
   "physicsStartAwake": true,
-  "properties": [
-    {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"type","filters":[],"listItems":[
-        "\"normal\"",
-        "\"kropkaczka\"",
-      ],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"\"normal\"","varType":6,},
-  ],
+  "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "s_bug",
-    "path": "sprites/s_bug/s_bug.yy",
+    "name": "s_block",
+    "path": "sprites/s_block/s_block.yy",
   },
   "spriteMaskId": null,
   "visible": true,
