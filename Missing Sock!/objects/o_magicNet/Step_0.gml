@@ -1,5 +1,3 @@
-if (live_call()) return live_result;//!!!
-
 var distance=point_distance(user.x,user.y,mouse_x,mouse_y)
 
 distance=max(distance,magicRange)

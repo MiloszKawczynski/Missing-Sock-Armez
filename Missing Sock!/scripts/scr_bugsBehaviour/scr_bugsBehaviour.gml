@@ -1,16 +1,14 @@
-function scr_bug(_bugSpeed,_path=noone)
+function scr_bug(_bugSpeed,_path=noone,_reverse=false)
 {
 	maxBugSpeed=_bugSpeed
 	bugSpeed=maxBugSpeed
 	
 	pointCounter=0;
+	pathIncrease=1;
 	px=x
 	py=y
-	
+	reverse=_reverse
 	path=_path
-	
-	coveredLength=0;
-	sinDirection=1;
 }
 
 //CALCULATIONS
@@ -47,11 +45,18 @@ function scr_moveByPath()
 {	
 	if (point_distance(x,y,px,py)<2)
 	{
-		pointCounter++;
+		pointCounter+=pathIncrease;
 			
-		if pointCounter>=path_get_number(path)
+		if pointCounter>=path_get_number(path) or pointCounter<=0
 		{
-			pointCounter=0;
+			if reverse
+			{
+				pathIncrease*=-1
+			}
+			else
+			{
+				pointCounter=0;
+			}
 			return
 		}
 			
@@ -64,24 +69,6 @@ function scr_moveByPath()
 	
 	x+=lengthdir_x(len,dir)/len*bugSpeed;
 	y+=lengthdir_y(len,dir)/len*bugSpeed;
-}
-
-function scr_moveBySin(angle,width,height,length)
-{	
-	if (live_call()) return live_result;//!!!
-	
-	xLen=lengthdir_x(coveredLength*width,angle)
-	yLen=sin(coveredLength*width)*height
-	
-	x=xstart+xLen;
-	y=ystart+yLen;
-	
-	coveredLength+=sinDirection;
-	
-	if coveredLength>length or coveredLength<0
-	{
-		sinDirection*=-1
-	}
 }
 
 //SPEEDMANIPULATION

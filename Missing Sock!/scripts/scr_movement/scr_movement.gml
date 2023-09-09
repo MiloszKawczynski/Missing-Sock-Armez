@@ -18,6 +18,11 @@ function scr_playerHorizontalMovement()
 	{
 		hspeed=maximumSpeed*horizontal
 	}
+	
+	if horizontal!=0
+	{
+		image_xscale=horizontal
+	}
 }
 
 function scr_playerVerticalMovement()

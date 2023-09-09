@@ -1,5 +1,3 @@
-if (live_call()) return live_result;//!!!
-
 if target==o_elf
 {
 	camX=target.x-(width/2)*zoom

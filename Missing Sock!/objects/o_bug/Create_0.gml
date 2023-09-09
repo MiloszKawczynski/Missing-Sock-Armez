@@ -16,7 +16,7 @@ normal=function()
 
 kropkaczka=function()
 {
-	scr_moveBySin(0,0.5,48,500)
+	scr_moveByPath()
 	
 	if distance_to_object(o_magicNet)<=o_magicNet.magicNetRange
 	{
@@ -44,7 +44,7 @@ switch(type)
 		
 		behaviour=kropkaczka;
 		
-		scr_bug(3)
+		scr_bug(3,pth_kropkaczka,true)
 		
 		break;
 	}

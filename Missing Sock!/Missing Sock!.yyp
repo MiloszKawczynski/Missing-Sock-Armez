@@ -60,6 +60,7 @@
     {"id":{"name":"GMLiveAPI_js","path":"scripts/GMLiveAPI_js/GMLiveAPI_js.yy",},},
     {"id":{"name":"GMLive_compiler","path":"scripts/GMLive_compiler/GMLive_compiler.yy",},},
     {"id":{"name":"GMLive_node","path":"scripts/GMLive_node/GMLive_node.yy",},},
+    {"id":{"name":"pth_kropkaczka","path":"paths/pth_kropkaczka/pth_kropkaczka.yy",},},
     {"id":{"name":"GMLive_vm","path":"scripts/GMLive_vm/GMLive_vm.yy",},},
     {"id":{"name":"GMLive_new","path":"scripts/GMLive_new/GMLive_new.yy",},},
     {"id":{"name":"GMLive_tools","path":"scripts/GMLive_tools/GMLive_tools.yy",},},
