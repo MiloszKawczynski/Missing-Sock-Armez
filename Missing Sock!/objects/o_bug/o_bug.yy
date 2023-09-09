@@ -32,6 +32,8 @@
         "\"lotek\"",
         "\"kropkaczka\"",
         "\"planta\"",
+        "\"skakacz\"",
+        "\"szelek\"",
       ],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"\"lotek\"","varType":6,},
   ],
   "solid": false,

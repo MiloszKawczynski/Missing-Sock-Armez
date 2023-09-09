@@ -1,9 +1,24 @@
 
 switch(hold)
 {
-	case("normal"):
+	case("kropkaczka"):
 	{
-		holdSprite=s_bug
+		holdSprite=0
+		break;
+	}
+	case("lotek"):
+	{
+		holdSprite=1
+		break;
+	}
+	case("planta"):
+	{
+		holdSprite=2
+		break;
+	}
+	case("skakacz"):
+	{
+		holdSprite=3
 		break;
 	}
 	case(noone):
@@ -15,5 +30,5 @@ switch(hold)
 
 if holdSprite!=noone
 {
-	draw_sprite_ext(holdSprite,0,x,y,10,10,sin(current_time/300)*45,c_red,1)
+	draw_sprite_ext(s_bigBug,holdSprite,x,y,3,3,sin(current_time/300)*45,c_white,1)
 }

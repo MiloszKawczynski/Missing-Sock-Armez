@@ -1,7 +1,7 @@
 width=800
 height=450
 
-zoom=1;
+zoom=0.85;
 
 if room_get_name(room)=="r_outside"
 {
@@ -14,6 +14,6 @@ else
 {
 	target=o_hand;
 	
-	camX=(room_width/2)*zoom
-	camY=0*zoom
+	camX=0
+	camY=0
 }

@@ -1,11 +1,5 @@
-var distance=point_distance(user.x,user.y,mouse_x,mouse_y)
-
-distance=max(distance,magicRange)
-
-var range=magicRange/distance
-
-x=user.x+(mouse_x-user.x)*range
-y=user.y+(mouse_y-user.y)*range
+x=mouse_x
+y=mouse_y
 
 if freezeStrike
 {

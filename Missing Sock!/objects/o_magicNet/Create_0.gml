@@ -1,7 +1,6 @@
 x=mouse_x
 y=mouse_y
 
-magicRange=250;
 magicNetRange=15;
 
 user=o_elf

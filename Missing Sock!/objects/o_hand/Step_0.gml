@@ -3,7 +3,7 @@ y=mouse_y
 
 if mouse_check_button_pressed(mb_left)
 {
-	hold="normal"
+	hold="kropkaczka"
 }
 
 if mouse_check_button_released(mb_left)

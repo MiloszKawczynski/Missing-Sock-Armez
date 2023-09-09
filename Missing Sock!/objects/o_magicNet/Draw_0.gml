@@ -20,4 +20,3 @@ if attractStrike
 
 draw_set_color(c_blue)
 draw_circle(x,y,magicNetRange,true)
-draw_circle(o_elf.x,o_elf.y,magicRange,true)

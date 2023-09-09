@@ -53,10 +53,12 @@
     {"name":"inst_3E9A285C","path":"rooms/r_outside/r_outside.yy",},
     {"name":"inst_4F0E407C","path":"rooms/r_outside/r_outside.yy",},
     {"name":"inst_19DDCCB8","path":"rooms/r_outside/r_outside.yy",},
+    {"name":"inst_4AD25E8A","path":"rooms/r_outside/r_outside.yy",},
+    {"name":"inst_C2580AF","path":"rooms/r_outside/r_outside.yy",},
   ],
   "isDnd": false,
   "layers": [
-    {"resourceType":"GMRPathLayer","resourceVersion":"1.0","name":"Path_1","colour":4278190335,"depth":0,"effectEnabled":true,"effectType":null,"gridX":8,"gridY":8,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"pathId":{"name":"pth_planta","path":"paths/pth_planta/pth_planta.yy",},"properties":[],"userdefinedDepth":false,"visible":true,},
+    {"resourceType":"GMRPathLayer","resourceVersion":"1.0","name":"Path_1","colour":4278190335,"depth":0,"effectEnabled":true,"effectType":null,"gridX":8,"gridY":8,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"pathId":{"name":"pth_szelek","path":"paths/pth_szelek/pth_szelek.yy",},"properties":[],"userdefinedDepth":false,"visible":false,},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"controllers","depth":100,"effectEnabled":true,"effectType":null,"gridX":16,"gridY":16,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_3BE870DB","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_gmlive","path":"objects/obj_gmlive/obj_gmlive.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":0.0,"y":0.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_4C886804","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"o_controller","path":"objects/o_controller/o_controller.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":16.0,"y":0.0,},
@@ -106,6 +108,12 @@
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_19DDCCB8","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"o_bug","path":"objects/o_bug/o_bug.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"o_bug","path":"objects/o_bug/o_bug.yy",},"propertyId":{"name":"type","path":"objects/o_bug/o_bug.yy",},"value":"\"planta\"",},
           ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":64.0,"y":1776.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_4AD25E8A","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"o_bug","path":"objects/o_bug/o_bug.yy",},"properties":[
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"o_bug","path":"objects/o_bug/o_bug.yy",},"propertyId":{"name":"type","path":"objects/o_bug/o_bug.yy",},"value":"\"skakacz\"",},
+          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":1360.0,"y":904.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_C2580AF","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"o_bug","path":"objects/o_bug/o_bug.yy",},"properties":[
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"o_bug","path":"objects/o_bug/o_bug.yy",},"propertyId":{"name":"type","path":"objects/o_bug/o_bug.yy",},"value":"\"szelek\"",},
+          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":1416.0,"y":528.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Instances","depth":300,"effectEnabled":true,"effectType":null,"gridX":16,"gridY":16,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_207CA511","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"o_block","path":"objects/o_block/o_block.yy",},"properties":[],"rotation":0.0,"scaleX":50.0,"scaleY":8.0,"x":1616.0,"y":976.0,},

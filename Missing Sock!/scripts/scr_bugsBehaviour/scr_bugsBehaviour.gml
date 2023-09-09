@@ -17,29 +17,10 @@ function scr_bug(_bugSpeed,_path=noone,_reverse=false,_range=0)
 	}
 	
 	range=_range
-	recoverTimer=0;
-}
-
-//CALCULATIONS
-
-function scr_calculateFreezeValue(strike=false)
-{
-	var value=(o_magicNet.freezeHold/o_magicNet.maxFreezeHold)
-	if strike
-	{
-		value=o_magicNet.freezeStrike
-	}
-	return value
-}
-
-function scr_calculateAttractValue(strike=false)
-{
-	var value=(o_magicNet.attractHold/o_magicNet.maxAttractHold)
-	if strike
-	{
-		value=o_magicNet.attractStrike
-	}
-	return value
+	
+	side=1;
+	
+	stun=0;
 }
 
 //MOVEMENTS
@@ -89,10 +70,41 @@ function scr_moveByPath()
 }
 
 function scr_moveSideways()
-{
+{	
+	if !place_meeting(x,y+1,o_block)
+	{
+		vspeed+=0.2
+	}
+	
+	scr_collision()
+	
+	
 	if place_free(x+side,y)
 	{
-		x+=side
+		x+=side*bugSpeed
+	}
+	else
+	{
+		side*=-1
+	}
+}
+
+function scr_moveBoucing(_vspeed)
+{
+	if place_meeting(x,y+1,o_block)
+	{
+		vspeed-=_vspeed*(bugSpeed/maxBugSpeed)
+	}
+	else
+	{
+		vspeed+=0.2
+	}
+	
+	scr_collision()
+	
+	if place_free(x+side*bugSpeed,y)
+	{
+		x+=side*bugSpeed
 	}
 	else
 	{
@@ -102,14 +114,28 @@ function scr_moveSideways()
 
 //SPEEDMANIPULATION
 
-function scr_slowDownWithMagic(slowingDownFactor,strike=false)
+function scr_slowDownWithMagic(slowingDownFactor)
 {
-	value=scr_calculateFreezeValue(strike)
-	if strike and value==false
-	{
-		return
-	}
+	value=(o_magicNet.freezeHold/o_magicNet.maxFreezeHold)
 	bugSpeed=min(maxBugSpeed-min(slowingDownFactor*value,maxBugSpeed),bugSpeed)
+}
+
+function scr_stunCast(stunValue)
+{
+	if o_magicNet.freezeStrike
+	{
+		bugSpeed=0;
+		stun=stunValue
+	}
+}
+
+function scr_stun()
+{
+	if stun>0
+	{
+		bugSpeed=0;
+		stun--;
+	}
 }
 
 function scr_instantSpeedRecover()
@@ -122,34 +148,17 @@ function scr_instantSpeedRecover()
 
 function scr_normalSpeedRecover(recoveringValue)
 {
-	if bugSpeed<maxBugSpeed
+	if bugSpeed<maxBugSpeed and stun==0
 	{
 		bugSpeed+=recoveringValue
 	}
 }
 
-function scr_curveSpeedRecover(chanel)
-{
-	if bugSpeed<maxBugSpeed
-	{
-		recoverTimer+=0.01
-		bugSpeed=animcurve_get_point(ac_speedRecovery,chanel,recoverTimer)*maxBugSpeed
-	}
-	else
-	{
-		recoverTimer=0;
-	}
-}
-
 //ATTRACTION
 
-function scr_attractToElf(attractionFactor,strike=false)
+function scr_attractToElf(attractionFactor)
 {	
-	value=scr_calculateAttractValue(strike)
-	if strike and value==false
-	{
-		return
-	}
+	value=(o_magicNet.attractHold/o_magicNet.maxAttractHold)
 	var len=point_distance(x,y,o_elf.x,o_elf.y);
 	var dir=point_direction(x,y,o_elf.x,o_elf.y);
 	if len!=0
@@ -163,7 +172,7 @@ function scr_attractToElf(attractionFactor,strike=false)
 
 function scr_catch(distance)
 {
-	if point_distance(x,y,o_elf.x,o_elf.y)<distance
+	if point_distance(x,y,o_elf.x,o_elf.y)<distance and o_magicNet.attractStrike
 	{
 		ds_list_add(global.catchedBugs,type)
 		instance_destroy();
