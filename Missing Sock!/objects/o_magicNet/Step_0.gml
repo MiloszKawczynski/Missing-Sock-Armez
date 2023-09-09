@@ -30,6 +30,7 @@ if distance_to_object(bug)<=magicNetRange
 
 	if mouseButtons==-1
 	{
+		attractHold=0;
 		if freezeHold<maxFreezeHold
 		{
 			freezeHold+=0.1;
@@ -43,6 +44,7 @@ if distance_to_object(bug)<=magicNetRange
 
 	if mouseButtons==1
 	{
+		freezeHold=0;
 		if attractHold<maxAttractHold
 		{
 			attractHold+=0.1;

@@ -12,10 +12,12 @@ function scr_bug(_bugSpeed,_path=noone,_reverse=false,_range=0)
 	
 	if path!=noone
 	{
+		path=path_duplicate(_path)
 		path_shift(path,x-path_get_point_x(path,0),y-path_get_point_y(path,0))
 	}
 	
 	range=_range
+	recoverTimer=0;
 }
 
 //CALCULATIONS
@@ -86,6 +88,18 @@ function scr_moveByPath()
 	y+=lengthdir_y(len,dir)/len*bugSpeed;
 }
 
+function scr_moveSideways()
+{
+	if place_free(x+side,y)
+	{
+		x+=side
+	}
+	else
+	{
+		side*=-1
+	}
+}
+
 //SPEEDMANIPULATION
 
 function scr_slowDownWithMagic(slowingDownFactor,strike=false)
@@ -95,7 +109,7 @@ function scr_slowDownWithMagic(slowingDownFactor,strike=false)
 	{
 		return
 	}
-	bugSpeed=maxBugSpeed-min(slowingDownFactor*value,maxBugSpeed)
+	bugSpeed=min(maxBugSpeed-min(slowingDownFactor*value,maxBugSpeed),bugSpeed)
 }
 
 function scr_instantSpeedRecover()
@@ -112,9 +126,18 @@ function scr_normalSpeedRecover(recoveringValue)
 	{
 		bugSpeed+=recoveringValue
 	}
+}
+
+function scr_curveSpeedRecover(chanel)
+{
+	if bugSpeed<maxBugSpeed
+	{
+		recoverTimer+=0.01
+		bugSpeed=animcurve_get_point(ac_speedRecovery,chanel,recoverTimer)*maxBugSpeed
+	}
 	else
 	{
-		scr_instantSpeedRecover()
+		recoverTimer=0;
 	}
 }
 
