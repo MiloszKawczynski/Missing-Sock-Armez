@@ -1,4 +1,4 @@
-function scr_bug(_bugSpeed,_path=noone,_reverse=false)
+function scr_bug(_bugSpeed,_path=noone,_reverse=false,_range=0)
 {
 	maxBugSpeed=_bugSpeed
 	bugSpeed=maxBugSpeed
@@ -9,6 +9,13 @@ function scr_bug(_bugSpeed,_path=noone,_reverse=false)
 	py=y
 	reverse=_reverse
 	path=_path
+	
+	if path!=noone
+	{
+		path_shift(path,x-path_get_point_x(path,0),y-path_get_point_y(path,0))
+	}
+	
+	range=_range
 }
 
 //CALCULATIONS
@@ -37,8 +44,16 @@ function scr_calculateAttractValue(strike=false)
 
 function scr_chaoticMovement()
 {
-	x+=irandom_range(-bugSpeed,bugSpeed)
-	y+=irandom_range(-bugSpeed,bugSpeed)
+	if point_distance(x,y,px,py)<2
+	{
+		px=x+irandom_range(-range,range)
+		py=y+irandom_range(-range,range)
+	}
+	
+	var dir=point_direction(x,y,px,py)
+	
+	x+=lengthdir_x(bugSpeed,dir)
+	y+=lengthdir_y(bugSpeed,dir)
 }
 
 function scr_moveByPath()

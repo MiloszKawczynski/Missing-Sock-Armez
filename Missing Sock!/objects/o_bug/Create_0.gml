@@ -1,3 +1,5 @@
+image_speed=0;
+
 normal=function()
 {
 	scr_chaoticMovement()
@@ -30,17 +32,19 @@ kropkaczka=function()
 
 switch(type)
 {
-	case("normal"):
+	case("lotek"):
 	{
+		image_index=2;
+		
 		behaviour=normal;
 		
-		scr_bug(1)
+		scr_bug(3,,,20)
 		
 		break;
 	}
 	case("kropkaczka"):
 	{
-		image_blend=c_fuchsia
+		image_index=1;
 		
 		behaviour=kropkaczka;
 		
