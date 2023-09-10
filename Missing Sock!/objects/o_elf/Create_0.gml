@@ -1,7 +1,7 @@
 randomize()
 
 global.catchedBugs=ds_list_create()
-ds_list_add(global.catchedBugs,"lotek","lotek","planta","skakacz")
+ds_list_add(global.catchedBugs,"kropkaczka","majur","szelek","pionsa")
 
 acceleration=1;
 deceleration=1;

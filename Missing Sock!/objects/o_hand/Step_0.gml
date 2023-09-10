@@ -1,6 +1,9 @@
 if (live_call()) return live_result;
 
 part_system_position(sys_cry, x+42,y-42);
+part_system_position(sys_angry, x+42,y-42);
+part_system_position(sys_happy, x+42,y-42);
+
 
 x=mouse_x
 y=mouse_y
@@ -52,7 +55,23 @@ if hold!=noone
 	if bugSquizing>=4
 	{
 		bugSquizing=2.5
-		part_emitter_burst(sys_cry, em_cry, type_cry, 2);
+		
+		if slot!=noone
+		{
+			var relation=scr_bugToSprite(hold)-scr_bugToSprite(ds_list_find_value(slot.contain,0))
+			if relation==-1 or relation==8
+			{
+				part_emitter_burst(sys_angry, em_angry, type_angry, 2);
+			}
+			
+			if relation==1 or relation==-8
+			{
+				part_emitter_burst(sys_cry, em_cry, type_cry, 2);
+			}
+			
+		}
+		
+		//	part_emitter_burst(sys_happy, em_happy, type_happy, 2);
 	}
 	else
 	{

@@ -7,3 +7,6 @@ contain=ds_list_create()
 containCapacity=2;
 
 lock=false
+
+isHot=choose(true,false)
+isGrounded=choose(true,false)

@@ -9,32 +9,32 @@ function scr_bugToSprite(bug)
 		}
 		case("lotek"):
 		{
-			sprite=1
+			sprite=7
 			break;
 		}
 		case("planta"):
 		{
-			sprite=2
+			sprite=6
 			break;
 		}
 		case("skakacz"):
 		{
-			sprite=3
+			sprite=5
 			break;
 		}
 		case("szelek"):
 		{
-			sprite=3
+			sprite=2
 			break;
 		}
 		case("pionsa"):
 		{
-			sprite=3
+			sprite=8
 			break;
 		}
 		case("roszar"):
 		{
-			sprite=3
+			sprite=4
 			break;
 		}
 		case("glero"):
@@ -44,7 +44,7 @@ function scr_bugToSprite(bug)
 		}
 		case("majur"):
 		{
-			sprite=0
+			sprite=1
 			break;
 		}
 		case(noone):
@@ -60,4 +60,55 @@ function scr_bugToSprite(bug)
 	}
 	
 	return sprite
+}
+
+function scr_bugTemparatureWanter(bug)
+{
+	switch(bug)
+	{
+		case("kropkaczka"):
+		{
+			return true
+		}
+		case("lotek"):
+		{
+			return true
+		}
+		case("planta"):
+		{
+			return true
+		}
+		case("skakacz"):
+		{
+			return true
+		}
+		case("szelek"):
+		{
+			return true
+		}
+		case("pionsa"):
+		{
+			return true
+		}
+		case("roszar"):
+		{
+			return true
+		}
+		case("glero"):
+		{
+			return true
+		}
+		case("majur"):
+		{
+			return true
+		}
+		case(noone):
+		{
+			return false
+		}
+		case(undefined):
+		{
+			return false
+		}
+	}
 }
