@@ -91,6 +91,57 @@ szelek=function()
 	scr_normalSpeedRecover(0.001)
 }
 
+pionsa=function()
+{
+	scr_moveSideways()
+	
+	if distance_to_object(o_magicNet)<=o_magicNet.magicNetRange
+	{
+		if stun==0 and bugSpeed==maxBugSpeed
+		{
+			if place_meeting(x,y+1,o_block) or place_meeting(x,y+1,o_semiBlock) 
+			{
+				vspeed=-irandom_range(5,12)
+			}
+		}
+		scr_stunCast(30)//
+		scr_slowDownWithMagic(maxBugSpeed)
+		scr_attractToElf(2)
+		scr_catch(15)
+		//scr_attractToElf(12)
+		//scr_catch(15)
+	}
+	
+	scr_stun()
+	scr_normalSpeedRecover(0.01)
+}
+
+roszar=function()
+{
+	scr_panicMovement()
+	
+	if distance_to_object(o_magicNet)<=o_magicNet.magicNetRange
+	{
+		if stun==0 and bugSpeed==maxBugSpeed
+		{
+			if place_meeting(x,y+1,o_block) or place_meeting(x,y+1,o_semiBlock) 
+			{
+				px=x+irandom_range(-range,range)
+				py=y+irandom_range(-range,range)
+			}
+		}
+		scr_stunCast(30)//
+		scr_slowDownWithMagic(maxBugSpeed)
+		scr_attractToElf(2)
+		scr_catch(15)
+		//scr_attractToElf(12)
+		//scr_catch(15)
+	}
+	
+	scr_stun()
+	scr_normalSpeedRecover(0.01)
+}
+
 switch(type)
 {
 	case("lotek"):
@@ -123,7 +174,6 @@ switch(type)
 		
 		break;
 	}
-	
 	case("skakacz"):
 	{
 		image_index=4;
@@ -134,7 +184,6 @@ switch(type)
 		
 		break;
 	}
-	
 	case("szelek"):
 	{
 		image_index=5;
@@ -142,6 +191,26 @@ switch(type)
 		behaviour=szelek;
 		
 		scr_bug(3,pth_szelek,true)
+		
+		break;
+	}
+	case("pionsa"):
+	{
+		image_index=6;
+		
+		behaviour=pionsa;
+		
+		scr_bug(2)
+		
+		break;
+	}
+	case("roszar"):
+	{
+		image_index=7;
+		
+		behaviour=roszar;
+		
+		scr_bug(6,,,96)
 		
 		break;
 	}

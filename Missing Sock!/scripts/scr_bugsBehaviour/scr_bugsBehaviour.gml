@@ -39,6 +39,20 @@ function scr_chaoticMovement()
 	y+=lengthdir_y(bugSpeed,dir)
 }
 
+function scr_panicMovement()
+{
+	if point_distance(x,y,px,py)<2
+	{
+		px=xstart
+		py=ystart
+	}
+	
+	var dir=point_direction(x,y,px,py)
+	
+	x+=lengthdir_x(bugSpeed,dir)
+	y+=lengthdir_y(bugSpeed,dir)
+}
+
 function scr_moveByPath()
 {	
 	if (point_distance(x,y,px,py)<2)
