@@ -1,9 +1,13 @@
 x=mouse_x
 y=mouse_y
 
+image_speed=0;
+
 magicNetRange=15;
 
 user=o_elf
+
+depth=user.depth-1
 
 freezeButton=mb_left
 freezeStrike=false
@@ -79,3 +83,24 @@ part_emitter_region( sys_attract, em_attract, -8, 8, -8, 8, ps_shape_rectangle, 
 part_system_position(sys_attract, x,y);
 
 
+sys_catch = part_system_create();
+part_system_draw_order( sys_catch, true);
+
+type_catch = part_type_create();
+part_type_sprite( type_catch, s_catchParticles, false, false, true)
+part_type_size( type_catch, 0.5, 0.75, -0.01, 0.05 );
+part_type_scale( type_catch, 1, 1);
+part_type_speed( type_catch, 2, 3, -0.1, 0);
+part_type_direction( type_catch, 0, 360, 0, 0);
+part_type_gravity( type_catch, 0, 270);
+part_type_orientation( type_catch, 0, 360, 0, 3, false);
+part_type_colour3( type_catch, $FFCCFF, $FFFFFF, $FFFFFF );
+part_type_alpha3( type_catch, 1, 1, 0);
+part_type_blend( type_catch, false);
+part_type_life( type_catch, 10, 25);
+
+em_catch = part_emitter_create( sys_catch );
+part_emitter_region( sys_catch, em_catch, -8, 8, -8, 8, ps_shape_rectangle, ps_distr_linear );
+//part_emitter_burst(sys_catch, em_catch, type_catch, 15);
+
+part_system_position(sys_catch, x,y);

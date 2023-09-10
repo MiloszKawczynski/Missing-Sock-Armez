@@ -1,11 +1,14 @@
 if (live_call()) return live_result;
 
+o_magicNet.image_index=0;
+
 x=mouse_x
 y=mouse_y
 
 part_system_position(sys_freeze, x,y);
 part_system_position(sys_cool, x,y);
 part_system_position(sys_attract, x,y);
+part_system_position(sys_catch, x,y);
 
 if freezeStrike
 {

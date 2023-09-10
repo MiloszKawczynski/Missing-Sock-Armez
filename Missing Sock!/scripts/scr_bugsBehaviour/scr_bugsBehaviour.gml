@@ -27,7 +27,7 @@ function scr_bug(_bugSpeed,_path=noone,_reverse=false,_range=0)
 
 function scr_chaoticMovement()
 {
-	if point_distance(x,y,px,py)<2
+	if point_distance(x,y,px,py)<bugSpeed
 	{
 		px=x+irandom_range(-range,range)
 		py=y+irandom_range(-range,range)
@@ -35,22 +35,30 @@ function scr_chaoticMovement()
 	
 	var dir=point_direction(x,y,px,py)
 	
-	x+=lengthdir_x(bugSpeed,dir)
-	y+=lengthdir_y(bugSpeed,dir)
+	hspeed=lengthdir_x(bugSpeed,dir)
+	vspeed=lengthdir_y(bugSpeed,dir)
+	
+	if scr_collision()
+	{
+		px=x+irandom_range(-range,range)
+		py=y+irandom_range(-range,range)
+	}
 }
 
 function scr_panicMovement()
 {
-	if point_distance(x,y,px,py)<2
+	if point_distance(x,y,px,py)<7
 	{
 		px=xstart
 		py=ystart
 	}
+	else
+	{
+		var dir=point_direction(x,y,px,py)
 	
-	var dir=point_direction(x,y,px,py)
-	
-	x+=lengthdir_x(bugSpeed,dir)
-	y+=lengthdir_y(bugSpeed,dir)
+		x+=lengthdir_x(bugSpeed,dir)
+		y+=lengthdir_y(bugSpeed,dir)
+	}
 }
 
 function scr_moveByPath()
@@ -126,6 +134,13 @@ function scr_moveBoucing(_vspeed)
 	}
 }
 
+function scr_moveInCircles()
+{
+	direction+=4;
+	
+	speed=bugSpeed
+}
+
 //SPEEDMANIPULATION
 
 function scr_slowDownWithMagic(slowingDownFactor)
@@ -186,9 +201,18 @@ function scr_attractToElf(attractionFactor)
 
 function scr_catch(distance)
 {
-	if point_distance(x,y,o_elf.x,o_elf.y)<distance and o_magicNet.attractStrike
+	if point_distance(x,y,o_elf.x,o_elf.y)<distance
 	{
-		ds_list_add(global.catchedBugs,type)
-		instance_destroy();
+		o_magicNet.image_index=1;
+		
+		if o_magicNet.attractStrike
+		{
+			with(o_magicNet)
+			{
+				part_emitter_burst(sys_catch, em_catch, type_catch, 15);
+			}
+			ds_list_add(global.catchedBugs,type)
+			instance_destroy();
+		}
 	}
 }

@@ -1,3 +1,5 @@
+randomize()
+
 global.catchedBugs=ds_list_create()
 ds_list_add(global.catchedBugs,"lotek","lotek","planta","skakacz")
 

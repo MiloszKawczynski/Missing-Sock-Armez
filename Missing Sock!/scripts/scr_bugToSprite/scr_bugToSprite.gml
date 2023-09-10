@@ -22,6 +22,31 @@ function scr_bugToSprite(bug)
 			sprite=3
 			break;
 		}
+		case("szelek"):
+		{
+			sprite=3
+			break;
+		}
+		case("pionsa"):
+		{
+			sprite=3
+			break;
+		}
+		case("roszar"):
+		{
+			sprite=3
+			break;
+		}
+		case("glero"):
+		{
+			sprite=3
+			break;
+		}
+		case("majur"):
+		{
+			sprite=0
+			break;
+		}
 		case(noone):
 		{
 			sprite=noone

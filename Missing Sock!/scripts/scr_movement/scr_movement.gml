@@ -31,6 +31,7 @@ function scr_playerVerticalMovement()
 	
 	var sys_float = part_system_create();
 	part_system_draw_order( sys_float, true);
+	part_system_depth(sys_float,depth+1)
 	
 	var em_float = part_emitter_create( sys_float );
 	part_emitter_region( sys_float, em_float, -8, 8, -4.5, 4.5, ps_shape_rectangle, ps_distr_linear );
@@ -47,7 +48,7 @@ function scr_playerVerticalMovement()
 		}
 	}
 	
-	if !place_meeting(x,y+1,o_block) and !place_meeting(x,y+1,o_semiBlock)
+	if !place_meeting(x,y+1,o_block) and (!place_meeting(x,y+1,o_semiBlock) or keyboard_check(ord("S")))
 	{
 		vspeed+=gravitation;
 		if keyboard_check(jumpKey)
@@ -68,6 +69,7 @@ function scr_playerVerticalMovement()
 
 function scr_collision()
 {	
+	var result=false
 	if place_meeting(x+hspeed,y,o_block)
 	{
 		while(place_free(x+sign(hspeed),y))
@@ -76,6 +78,7 @@ function scr_collision()
 		}
 		
 		hspeed=0;
+		result=true
 	}
 	
 	if place_meeting(x,y+vspeed,o_block)
@@ -86,6 +89,7 @@ function scr_collision()
 		}
 		
 		vspeed=0;
+		result=true
 	}
 	
 	if place_meeting(x+hspeed,y+vspeed,o_block)
@@ -98,28 +102,34 @@ function scr_collision()
 		
 		hspeed=0;
 		vspeed=0;
+		result=true
 	}
+	
+	return result
 }
 
 function scr_semiCollision()
 {	
-	var semiBlock=instance_nearest(x,y,o_semiBlock)
-	
-	if place_meeting(x,y+vspeed,o_semiBlock) and vspeed>0 and y+sprite_get_height(sprite_index)/2<semiBlock.y
+	if !keyboard_check(ord("S"))
 	{
-		while(place_free(x,y+sign(vspeed)))
-		{
-			y+=sign(vspeed);
-		}
+		var semiBlock=instance_nearest(x,y,o_semiBlock)
 		
-		vspeed=0;
-	}
-	
-	if vspeed==0
-	{
-		while(place_meeting(x,y,o_semiBlock))
+		if place_meeting(x,y+vspeed,o_semiBlock) and vspeed>0 and y+sprite_get_height(sprite_index)/2<semiBlock.y
 		{
-			y--;
+			while(place_free(x,y+sign(vspeed)))
+			{
+				y+=sign(vspeed);
+			}
+		
+			vspeed=0;
+		}
+	
+		if vspeed==0
+		{
+			while(place_meeting(x,y,o_semiBlock))
+			{
+				y--;
+			}
 		}
 	}
 }

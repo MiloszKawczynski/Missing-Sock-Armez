@@ -6,14 +6,14 @@ lotek=function()
 	
 	if distance_to_object(o_magicNet)<=o_magicNet.magicNetRange
 	{
-		scr_stunCast(10)//
+		scr_stunCast(1)//
 		scr_slowDownWithMagic(maxBugSpeed*1.5)
 		scr_attractToElf(2)
 		scr_catch(15)
 	}
 	
 	scr_stun()
-	scr_normalSpeedRecover(0.005)
+	scr_normalSpeedRecover(0.01)
 }
 
 kropkaczka=function()
@@ -124,15 +124,51 @@ roszar=function()
 	{
 		if stun==0 and bugSpeed==maxBugSpeed
 		{
-			if place_meeting(x,y+1,o_block) or place_meeting(x,y+1,o_semiBlock) 
+			if px==xstart
 			{
 				px=x+irandom_range(-range,range)
 				py=y+irandom_range(-range,range)
 			}
 		}
-		scr_stunCast(30)//
+		scr_stunCast(10)//
 		scr_slowDownWithMagic(maxBugSpeed)
 		scr_attractToElf(2)
+		scr_catch(15)
+		//scr_attractToElf(12)
+		//scr_catch(15)
+	}
+	
+	scr_stun()
+	scr_normalSpeedRecover(0.01)
+}
+
+glero=function()
+{
+	scr_moveInCircles()
+	
+	if distance_to_object(o_magicNet)<=o_magicNet.magicNetRange
+	{
+		scr_stunCast(5)//
+		scr_slowDownWithMagic(maxBugSpeed*0.75)
+		scr_attractToElf(2)
+		scr_catch(15)
+		//scr_attractToElf(12)
+		//scr_catch(15)
+	}
+	
+	scr_stun()
+	scr_normalSpeedRecover(0.01)
+}
+
+majur=function()
+{
+	scr_chaoticMovement()
+	
+	if distance_to_object(o_magicNet)<=o_magicNet.magicNetRange
+	{
+		scr_stunCast(1)//
+		scr_slowDownWithMagic(maxBugSpeed*0.5)
+		scr_attractToElf(3)
 		scr_catch(15)
 		//scr_attractToElf(12)
 		//scr_catch(15)
@@ -211,6 +247,26 @@ switch(type)
 		behaviour=roszar;
 		
 		scr_bug(6,,,96)
+		
+		break;
+	}
+	case("glero"):
+	{
+		image_index=8;
+		
+		behaviour=glero;
+		
+		scr_bug(4)
+		
+		break;
+	}
+	case("majur"):
+	{
+		image_index=0;
+		
+		behaviour=majur;
+		
+		scr_bug(5,,,50)
 		
 		break;
 	}
