@@ -212,6 +212,12 @@ function scr_catch(distance)
 				part_emitter_burst(sys_catch, em_catch, type_catch, 15);
 			}
 			ds_list_add(global.catchedBugs,type)
+			
+			with(o_camera)
+			{
+				ds_list_add(promptsList,new prompt(other.type))
+			}
+			
 			instance_destroy();
 		}
 	}

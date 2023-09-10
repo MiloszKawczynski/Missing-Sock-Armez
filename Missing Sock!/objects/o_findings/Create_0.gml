@@ -9,4 +9,3 @@ for(var i=0;i<ds_list_size(global.catchedBugs);i++)
 		image_yscale=other.image_yscale
 	}
 }
-instance_destroy()

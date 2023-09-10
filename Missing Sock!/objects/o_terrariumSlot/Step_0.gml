@@ -2,7 +2,10 @@ hoover=place_meeting(x,y,o_hand)
 
 if hoover
 {
-	image_alpha=0.1
+	if lock==false or o_hand.hold==noone
+	{
+		image_alpha=0.1
+	}
 }
 else
 {
