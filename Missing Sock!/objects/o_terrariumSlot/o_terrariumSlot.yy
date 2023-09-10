@@ -30,8 +30,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "s_block",
-    "path": "sprites/s_block/s_block.yy",
+    "name": "s_terrarias",
+    "path": "sprites/s_terrarias/s_terrarias.yy",
   },
   "spriteMaskId": null,
   "visible": true,

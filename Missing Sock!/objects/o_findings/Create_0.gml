@@ -5,7 +5,7 @@ for(var i=0;i<ds_list_size(global.catchedBugs);i++)
 	{
 		lock=true
 		ds_list_add(contain,ds_list_find_value(global.catchedBugs,i))
-		image_xscale=other.image_xscale
-		image_yscale=other.image_yscale
+		//image_xscale=other.image_xscale
+		//image_yscale=other.image_yscale
 	}
 }

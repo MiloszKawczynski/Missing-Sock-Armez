@@ -65,8 +65,6 @@ if mouse_check_button_released(mb_left)
 				{
 					lock=true
 					ds_list_add(contain,o_hand.hold)
-					image_xscale=other.image_xscale
-					image_yscale=other.image_yscale
 				}
 			}
 			hold=noone

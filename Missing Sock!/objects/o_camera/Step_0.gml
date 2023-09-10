@@ -15,4 +15,27 @@ if target==o_elf
 	camera_set_view_size(view_camera[0],camW,camH);
 }
 
-time--;
+if time<=0
+{
+	if room_get_name(room)=="r_outside"
+	{
+		transition+=0.005
+	}
+	else
+	{
+		transition-=0.005
+	}
+	transitionV=animcurve_get_point(ac_transition,0,transition)*2
+	
+	if room_get_name(room)=="r_outside"
+	{
+		if transition>=0.2
+		{
+			room_goto(r_terrarium)
+		}
+	}
+}
+else
+{
+	time--;
+}

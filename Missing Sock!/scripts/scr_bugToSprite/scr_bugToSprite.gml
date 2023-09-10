@@ -47,6 +47,11 @@ function scr_bugToSprite(bug)
 			sprite=1
 			break;
 		}
+		case("killed"):
+		{
+			sprite=9
+			break;
+		}
 		case(noone):
 		{
 			sprite=noone
@@ -160,6 +165,61 @@ function scr_bugGraundedWanter(bug)
 		case(undefined):
 		{
 			return -2
+		}
+	}
+}
+
+function scr_bugToScore(bug)
+{
+	switch(bug)
+	{
+		case("kropkaczka"):
+		{
+			return 40
+		}
+		case("lotek"):
+		{
+			return 30
+		}
+		case("planta"):
+		{
+			return 10
+		}
+		case("skakacz"):
+		{
+			return 30
+		}
+		case("szelek"):
+		{
+			return 20
+		}
+		case("pionsa"):
+		{
+			return 30
+		}
+		case("roszar"):
+		{
+			return 40
+		}
+		case("glero"):
+		{
+			return 20
+		}
+		case("majur"):
+		{
+			return 30
+		}
+		case("killed"):
+		{
+			return -10
+		}
+		case(noone):
+		{
+			return 0
+		}
+		case(undefined):
+		{
+			return 0
 		}
 	}
 }
