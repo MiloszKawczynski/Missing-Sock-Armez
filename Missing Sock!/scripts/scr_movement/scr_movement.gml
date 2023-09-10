@@ -26,11 +26,22 @@ function scr_playerHorizontalMovement()
 }
 
 function scr_playerVerticalMovement()
-{		
+{	
+	if (live_call()) return live_result;
+	
+	var sys_float = part_system_create();
+	part_system_draw_order( sys_float, true);
+	
+	var em_float = part_emitter_create( sys_float );
+	part_emitter_region( sys_float, em_float, -8, 8, -4.5, 4.5, ps_shape_rectangle, ps_distr_linear );
+
+	part_system_position(sys_float, x, bbox_bottom);
+	
 	if keyboard_check_pressed(jumpKey)
 	{
 		if jumps>0
 		{
+			part_emitter_burst(sys_float, em_float, type_floatBurst, 10);
 			vspeed=-jumpSpeed;
 			jumps--;
 		}
@@ -42,6 +53,8 @@ function scr_playerVerticalMovement()
 		if keyboard_check(jumpKey)
 		{
 			vspeed=min(vspeed,floatSpeed);
+			part_emitter_burst(sys_float, em_float, type_float, 1);
+			part_emitter_burst(sys_float, em_float, type_floatBurst, 1);
 		}
 	}
 	else

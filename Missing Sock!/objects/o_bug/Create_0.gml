@@ -88,7 +88,7 @@ szelek=function()
 	}
 	
 	scr_stun()
-	scr_normalSpeedRecover(0.01)
+	scr_normalSpeedRecover(0.001)
 }
 
 switch(type)

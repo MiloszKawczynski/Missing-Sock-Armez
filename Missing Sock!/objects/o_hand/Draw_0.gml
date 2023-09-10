@@ -1,34 +1,9 @@
+if (live_call()) return live_result;
 
-switch(hold)
-{
-	case("kropkaczka"):
-	{
-		holdSprite=0
-		break;
-	}
-	case("lotek"):
-	{
-		holdSprite=1
-		break;
-	}
-	case("planta"):
-	{
-		holdSprite=2
-		break;
-	}
-	case("skakacz"):
-	{
-		holdSprite=3
-		break;
-	}
-	case(noone):
-	{
-		holdSprite=noone
-		break;
-	}
-}
+holdSprite=scr_bugToSprite(hold)
 
 if holdSprite!=noone
 {
-	draw_sprite_ext(s_bigBug,holdSprite,x,y,3,3,sin(current_time/300)*45,c_white,1)
+	var scale=min(bugSquizing,3)
+	draw_sprite_ext(s_bigBug,holdSprite,x,y,scale,scale,sin(current_time/300)*20,c_white,1)
 }
