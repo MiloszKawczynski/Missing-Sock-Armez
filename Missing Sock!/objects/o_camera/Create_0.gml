@@ -3,7 +3,6 @@ height=450
 
 zoom=0.85;
 
-time=5*60*60
 
 if room_get_name(room)=="r_outside"
 {
@@ -11,6 +10,12 @@ if room_get_name(room)=="r_outside"
 	
 	camX=target.x-(width/2)*zoom
 	camY=target.y-(height/2)*zoom
+	
+	time=5*60*60
+	//time=60*5
+	
+	transition=0;
+	transitionV=0;
 }
 else
 {
@@ -18,6 +23,11 @@ else
 	
 	camX=0
 	camY=0
+	
+	time=0
+	
+	transition=0.2;
+	transitionV=animcurve_get_point(ac_transition,0,transition)*2
 }
 
 function prompt(_catched) constructor
